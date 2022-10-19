@@ -22,7 +22,9 @@ Widget blogs(BuildContext context) {
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
               return snapshot.data == null
-                  ? Center(child: loadingEffect())
+                  ? Center(
+                      child: loadingEffect(),
+                    )
                   : ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -38,7 +40,7 @@ Widget blogs(BuildContext context) {
                       },
                     );
             } else if (snapshot.hasError) {
-              return const Text('Check Your Internet Connectivity!');
+              return const Text('Check Your Wifi Connection');
             } else {
               return Center(
                 child: loadingEffect(),

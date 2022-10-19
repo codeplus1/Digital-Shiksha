@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:digitization/Api/api.dart';
 import 'package:digitization/const/const.dart';
-import 'package:digitization/widgets/loading_effect.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_awesome_buttons/flutter_awesome_buttons.dart';
@@ -31,31 +30,15 @@ class _AboutUsPageState extends State<AboutUsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Container(
-          width: 70,
-          height: 70,
-          child: const Icon(Icons.whatsapp),
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            gradient: LinearGradient(
-              colors: [Colors.red, Colors.blue],
-            ),
-          ),
-        ),
-        onPressed: () {
-          _launchURL('https://wa.me/+977 9814896965');
-        },
-      ),
       body: FutureBuilder(
         future: getContact(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           return snapshot.data == null
-              ? Center(
+              ? const Center(
                   child: SizedBox(
-                    width: 50,
-                    height: 60,
-                    child: loadingEffect(),
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.pink,
+                    ),
                   ),
                 )
               : ListView.builder(
@@ -81,7 +64,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                           ),
                           DefaultTextStyle(
                             style: const TextStyle(
-                                fontSize: 28.0, color: Colors.black),
+                                fontSize: 25.0, color: Colors.black),
                             child: AnimatedTextKit(
                               animatedTexts: [
                                 WavyAnimatedText('Contact Developer !'),
@@ -162,7 +145,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                                 iconSize: 45,
                                 icon: const Icon(Icons.whatsapp),
                                 onPressed: () {
-                                  _launchURL('https://wa.me/+977 9746839213');
+                                  _launchURL('https://wa.me/+977 9814896965');
                                 },
                               ),
                               InstagramButton(

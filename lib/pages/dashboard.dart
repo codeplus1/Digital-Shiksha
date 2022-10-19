@@ -43,21 +43,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ],
           isRepeatingAnimation: true,
         ),
-        // actions: [
-        //   Padding(
-        //     padding: const EdgeInsets.symmetric(horizontal: 10),
-        //     child: IconButton(
-        //       onPressed: () {
-        //         Navigator.push(
-        //             context, MaterialPageRoute(builder: (context) => Notice()));
-        //       },
-        //       icon: const Icon(
-        //         Icons.blur_circular_sharp,
-        //         size: 40,
-        //       ),
-        //     ),
-        //   )
-        // ],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: IconButton(
+              onPressed: () {
+                onrefresh();
+              },
+              icon: const Icon(
+                Icons.wifi_protected_setup_outlined,
+                size: 30,
+              ),
+            ),
+          )
+        ],
       ),
       drawer: myDrawer(context),
       body: RefreshIndicator(

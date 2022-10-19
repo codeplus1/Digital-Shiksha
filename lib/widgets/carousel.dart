@@ -16,14 +16,15 @@ Widget carousel(BuildContext context) {
   }
 
   return FutureBuilder(
-      future: getSlide(),
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
+    future: getSlide(),
+    builder: (BuildContext context, AsyncSnapshot snapshot) {
+      if (snapshot.hasData) {
         return snapshot.data == null
             ? Center(
                 child: loadingEffect(),
               )
             : SizedBox(
-                height: 160.0,
+                height: 150.0,
                 width: MediaQuery.of(context).size.width,
                 child: Carousel(
                   dotBgColor: Colors.transparent,
@@ -34,8 +35,7 @@ Widget carousel(BuildContext context) {
                   images: [
                     Image.network(
                       url + snapshot.data[0]['image'],
-                      fit: BoxFit.scaleDown,
-                      scale: 1.0,
+                      fit: BoxFit.cover,
                     ),
                     Image.network(url + snapshot.data[1]['image'],
                         fit: BoxFit.cover),
@@ -48,5 +48,13 @@ Widget carousel(BuildContext context) {
                   ],
                 ),
               );
-      });
+      } else if (snapshot.hasError) {
+        return const Text('Check Your Wifi Connection');
+      } else {
+        return Center(
+          child: loadingEffect(),
+        );
+      }
+    },
+  );
 }

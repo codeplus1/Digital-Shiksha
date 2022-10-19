@@ -16,33 +16,10 @@ Widget myDrawer(BuildContext context) {
   return Drawer(
     child: ListView(
       children: [
-        const UserAccountsDrawerHeader(
-          // decoration: BoxDecoration(color: Colors.grey[100]),
-          currentAccountPicture: CircleAvatar(
-            child: Image(
-              image: AssetImage(
-                'assets/drawerlogo.png',
-              ),
-            ),
-            backgroundColor: Colors.blueGrey,
-          ),
-          accountName: Text(
-            "SJ Computer Center",
-            style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w600,
-                color: Colors.lightBlue
-                // fontFamily:
-                ),
-          ),
-          accountEmail: Text(
-            "Perfect for IT World",
-            style: TextStyle(
-              fontSize: 10, fontWeight: FontWeight.w600,
-              color: Colors.blue,
-              // fontFamily:
-            ),
-          ),
+        SizedBox(
+          height: 120,
+          child:
+              Image.network('http://www.sjcomputercenter.com.np/image/1.png'),
         ),
         ListTile(
           onTap: () {
@@ -77,10 +54,22 @@ Widget myDrawer(BuildContext context) {
           ),
           title: const Text("Facebook Page"),
         ),
+        ListTile(
+          onTap: () {
+            _launchURL("https://www.sjcomputercenter.com.np/");
+            // print('Saroj');
+          },
+          leading: Icon(
+            Icons.wordpress,
+            color: primaryColor,
+          ),
+          title: const Text("Visit Website"),
+        ),
         const Divider(),
         ListTile(
           onTap: () {
-            _launchURL("https://forms.gle/fH3zF3PZQ3fDth6y7");
+            _launchURL(
+                "https://play.google.com/store/apps/details?id=np.com.sjcomputercenter.digitalshikshaa");
             // print('Saroj');
           },
           leading: Icon(
@@ -89,6 +78,19 @@ Widget myDrawer(BuildContext context) {
           ),
           title: const Text("Feedback"),
         ),
+        ListTile(
+          onTap: () {
+            _launchURL(
+                "https://play.google.com/store/apps/details?id=np.com.sjcomputercenter.digitalshikshaa");
+            // print('Saroj');
+          },
+          leading: Icon(
+            Icons.star,
+            color: primaryColor,
+          ),
+          title: const Text("Rate us"),
+        ),
+        const Divider(),
         ListTile(
           title: const Text("About us"),
           onTap: () {
@@ -101,16 +103,18 @@ Widget myDrawer(BuildContext context) {
           ),
         ),
         const Divider(),
-        const ListTile(
-          leading: Text(
-            "v",
-            style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 22,
-                color: Colors.blueGrey),
+        ListTile(
+          onTap: () {
+            _launchURL(
+                "https://play.google.com/store/apps/details?id=np.com.sjcomputercenter.digitalshikshaa");
+            // print('Saroj');
+          },
+          leading: Icon(
+            Icons.verified_sharp,
+            color: primaryColor,
           ),
-          title: Text("Version"),
-          subtitle: Text("1.0.0"),
+          title: const Text("Updated Version"),
+          subtitle: const Text("1.0.1"),
         ),
         const Divider(),
         ListTile(

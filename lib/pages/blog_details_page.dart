@@ -20,25 +20,30 @@ class BlogPage extends StatelessWidget {
         title: Text(title!),
       ),
       body: SingleChildScrollView(
-        child: InteractiveViewer(
-          panEnabled: false,
-          child: Column(
-            children: [
-              // image
-              Image.network(image!),
-              // Title and description
-              ListTile(
-                title: Text(
-                  title!,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w800, fontSize: 20),
-                ),
-                subtitle: Html(
+        child: Column(
+          children: [
+            // image
+            Image.network(image!),
+            // Title and description
+            ListTile(
+              // title: Text(
+              //   title!,
+              //   style: const TextStyle(
+              //       fontWeight: FontWeight.w800, fontSize: 20),
+              // ),
+              subtitle: InteractiveViewer(
+                child: Html(
+                  style: {
+                    "body": Style(
+                      letterSpacing: 0.5,
+                      fontSize: const FontSize(18),
+                    ),
+                  },
                   data: description!,
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );

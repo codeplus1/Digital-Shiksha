@@ -47,18 +47,15 @@ class _NotesDownloadState extends State<NotesDownload> {
                         children: [
                           Card(
                             child: ListTile(
-                              onTap: () {},
+                              onTap: () {
+                                _launchURL(mydata['document']);
+                              },
                               title: Text(mydata['title']),
                               subtitle: Text(mydata['created_at']),
-                              trailing: InkWell(
-                                onTap: () {
-                                  _launchURL(mydata['document']);
-                                },
-                                child: Icon(
-                                  Icons.arrow_downward,
-                                  size: 30,
-                                  color: primaryColor,
-                                ),
+                              trailing: Icon(
+                                Icons.download_for_offline_sharp,
+                                size: 30,
+                                color: primaryColor,
                               ),
                             ),
                           )
