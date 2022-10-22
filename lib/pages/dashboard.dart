@@ -1,7 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:digitization/const/const.dart';
+import 'package:digitization/pages/search_page.dart';
 import 'package:digitization/widgets/blogs.dart';
 import 'package:digitization/widgets/drawer.dart';
+
 import 'package:flutter/material.dart';
 
 import '../widgets/carousel.dart';
@@ -10,6 +12,7 @@ class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _DashboardScreenState createState() => _DashboardScreenState();
 }
 
@@ -29,6 +32,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     DateTime? lastPressed;
     return Scaffold(
+      // floatingActionButton: IconButton(
+      //   onPressed: () {
+      //     onrefresh();
+      //   },
+      //   icon: const Icon(
+      //     Icons.wifi_protected_setup_outlined,
+      //     size: 30,
+      //     color: Colors.red,
+      //   ),
+      // ),
       appBar: AppBar(
         elevation: .5,
         backgroundColor: primaryColor,
@@ -44,8 +57,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
           isRepeatingAnimation: true,
         ),
         actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SearchPage()),
+              );
+            },
+            icon: const Icon(
+              Icons.search,
+              size: 30,
+            ),
+          ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: IconButton(
               onPressed: () {
                 onrefresh();

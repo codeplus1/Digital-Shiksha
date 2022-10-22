@@ -73,7 +73,7 @@ Widget myDrawer(BuildContext context) {
             // print('Saroj');
           },
           leading: Icon(
-            Icons.feedback_rounded,
+            Icons.feed_outlined,
             color: primaryColor,
           ),
           title: const Text("Feedback"),
